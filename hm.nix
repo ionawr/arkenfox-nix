@@ -20,6 +20,7 @@ in {
         type = types.enum versions;
         default = "master";
       };
+      disableWarning = lib.mkEnableOption "disable warning about version mismatch";
     };
     profiles = lib.mkOption {
       type = types.attrsOf (types.submodule ({config, ...}: {
@@ -38,9 +39,18 @@ in {
     };
   };
 
-  config = lib.mkIf (cfg.enable && cfg.arkenfox.enable && !(lib.hasPrefix cfg.arkenfox.version version)) {
-    warnings = [
-      "Arkenfox version ${cfg.arkenfox.version} does not match Firefox's (${version})"
-    ];
-  };
+  config = lib.mkMerge [
+    (lib.mkIf (cfg.enable
+      && cfg.arkenfox.enable
+      && !cfg.arkenfox.disableWarning
+      && !(lib.hasPrefix cfg.arkenfox.version version)) {
+      warnings = [
+        "Arkenfox version ${cfg.arkenfox.version} does not match Firefox's (${version})"
+      ];
+    })
+    {
+      programs.firefox.arkenfox.disableWarning =
+        lib.mkDefault (cfg.arkenfox.version == "master");
+    }
+  ];
 }
