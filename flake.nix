@@ -111,5 +111,8 @@
       arkenfox = import ./hm.nix self.lib.arkenfox.supportedVersions self.lib.arkenfox.extracted;
       default = self.hmModules.arkenfox;
     };
+
+    homeManagerModules = self.hmModules;
+    homeModules = self.hmModules;
   };
 }
