@@ -61,15 +61,15 @@ sub select_new_subsection {
 
 sub close_section {
     print "    \"meta\": {\n";
-    print "      \"title\": \"" . ( nix_sanitize $section_title) . "\",\n";
+    print "      \"title\": \"" . ( nix_sanitize $section_title ) . "\",\n";
     print "      \"description\": \""
-      . ( nix_sanitize $section_description) . "\",\n";
+      . ( nix_sanitize $section_description ) . "\",\n";
     keys %section_meta;
     while ( my ( $k, $v ) = each %section_meta ) {
         print "      \""
-          . ( nix_sanitize $k)
+          . ( nix_sanitize $k )
           . "\": \""
-          . ( nix_sanitize $v) . "\",\n";
+          . ( nix_sanitize $v ) . "\",\n";
     }
     print "      \"links\": {\n";
     my $first = $true;
@@ -113,15 +113,16 @@ sub close_subsection {
     }
     print "      ],\n";
     print "      \"meta\": {\n";
-    print "        \"title\": \"" . ( nix_sanitize $subsection_title) . "\",\n";
+    print "        \"title\": \""
+      . ( nix_sanitize $subsection_title ) . "\",\n";
     print "        \"description\": \""
-      . ( nix_sanitize $subsection_description) . "\",\n";
+      . ( nix_sanitize $subsection_description ) . "\",\n";
     keys %subsection_meta;
     while ( my ( $k, $v ) = each %subsection_meta ) {
         print "        \""
-          . ( nix_sanitize $k)
+          . ( nix_sanitize $k )
           . "\": \""
-          . ( nix_sanitize $v) . "\",\n";
+          . ( nix_sanitize $v ) . "\",\n";
     }
     print "        \"links\": {\n";
     my $first = $true;

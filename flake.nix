@@ -2,13 +2,13 @@
   description = "Utilities to use arkenfox's user.js for Firefox";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/release-23.05";
+    nixpkgs.url = "nixpkgs/release-25.11";
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
     };
     pre-commit = {
-      url = "github:cachix/pre-commit-hooks.nix";
+      url = "github:cachix/git-hooks.nix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-compat.follows = "flake-compat";
@@ -58,7 +58,7 @@
         src = ./.;
         hooks = {
           alejandra.enable = true;
-          alejandra.excludes = ["autogen"];
+          alejandra.settings.exclude = ["autogen"];
           deadnix.enable = true;
           statix.enable = true;
           statix.settings.ignore = ["autogen/*"];
