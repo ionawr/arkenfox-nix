@@ -8,6 +8,8 @@
         "owner": "edolstra",
         "repo": "flake-compat",
         "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
+<<<<<<< pre-commit-follows-nixpkgs
+=======
         "type": "github"
       },
       "original": {
@@ -24,6 +26,7 @@
         "owner": "NixOS",
         "repo": "flake-compat",
         "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
+>>>>>>> main
         "type": "github"
       },
       "original": {
@@ -68,6 +71,8 @@
         "type": "indirect"
       }
     },
+<<<<<<< pre-commit-follows-nixpkgs
+=======
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1764947035,
@@ -84,18 +89,31 @@
         "type": "github"
       }
     },
+>>>>>>> main
     "pre-commit": {
       "inputs": {
-        "flake-compat": "flake-compat_2",
+        "flake-compat": [
+          "flake-compat"
+        ],
         "gitignore": "gitignore",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
+<<<<<<< pre-commit-follows-nixpkgs
+        "lastModified": 1769939035,
+        "narHash": "sha256-Fok2AmefgVA0+eprw2NDwqKkPGEI5wvR+twiZagBvrg=",
+        "owner": "cachix",
+        "repo": "pre-commit-hooks.nix",
+        "rev": "a8ca480175326551d6c4121498316261cbb5b260",
+=======
         "lastModified": 1769069492,
         "narHash": "sha256-Efs3VUPelRduf3PpfPP2ovEB4CXT7vHf8W+xc49RL/U=",
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
         "rev": "a1ef738813b15cf8ec759bdff5761b027e3e1d23",
+>>>>>>> main
         "type": "github"
       },
       "original": {
